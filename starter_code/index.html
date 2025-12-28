@@ -28,8 +28,12 @@
         function loadApp(url) {
             document.getElementById('content-frame').src = url;
         }
-        
-        // TODO: Add listener for postMessage
+        window.addEventListener("message", (event) => {
+            if (event.data?.type === "CHANGE_SHELL_COLOR") {
+                document.querySelector("header").style.backgroundColor = event.data.color;
+            }
+        });
     </script>
+
 </body>
 </html>
